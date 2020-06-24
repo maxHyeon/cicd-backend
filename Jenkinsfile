@@ -11,7 +11,7 @@ podTemplate(label: label, cloud: "academycluster", containers: [
 	try {
 
 		stage('scm') {
-			git credentialsId: 'post-academy-git-auth', url: 'https://github.com/maxHyeon/cicd-front.git', branch: 'master'
+			git credentialsId: 'post-academy-git-auth', url: 'https://github.com/maxHyeon/cicd-back.git', branch: 'master'
 	    }
 
     	def props = readProperties  file:"./kubernetes/pipeline.properties"
