@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: lab23
+  name: backend-lab23
+  labels:
+    name: backend-lab23
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: backend-lab23
+  type: NodePort

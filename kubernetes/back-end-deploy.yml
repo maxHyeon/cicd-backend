@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: lab23
+  name: backend-lab23
+  labels:
+    app: backend-lab23
+spec:
+  selector:
+    matchLabels:
+      app: backend-lab23
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backend-lab23
+    spec:
+      containers:
+        - name: backend-lab23
+          image: maxhyeon/backend-lab23:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
