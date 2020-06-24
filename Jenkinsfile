@@ -1,7 +1,7 @@
 def label = "worker-${UUID.randomUUID().toString()}"
 
 podTemplate(label: label, cloud: "academycluster", containers: [
-  containerTemplate(name: 'maven', image: 'maven:lts', command: 'cat', ttyEnabled: true),
+  containerTemplate(name: 'maven', image: 'maven:3.6.2-jdk-8', command: 'cat', ttyEnabled: true),
   containerTemplate(name: "scanner", image: "newtmitch/sonar-scanner", ttyEnabled: true, command: "cat"),
   containerTemplate(name: 'docker', image: 'docker:dind', command: 'dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay', ttyEnabled: true, alwaysPullImage: true, privileged: true),
   containerTemplate(name: 'kubectl', image: 'roffe/kubectl', command: 'cat', ttyEnabled: true)
