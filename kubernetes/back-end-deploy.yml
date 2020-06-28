@@ -21,3 +21,10 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          env:
+            - name: MYSQL_CONNECTION
+              value: 169.56.75.43:31482
+            - name: USERNAME
+              value: root
+            - name: PASSWORD
+              value: passw0rd
