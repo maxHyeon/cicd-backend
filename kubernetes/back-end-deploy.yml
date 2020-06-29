@@ -23,5 +23,5 @@ spec:
         - containerPort: 8080
         envFrom:
         - configMapRef:
-          name: lab23-backend-config
+            name: lab23-backend-config
             
