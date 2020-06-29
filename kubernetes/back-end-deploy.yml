@@ -16,12 +16,12 @@ spec:
         app: backend-lab23
     spec:
       containers:
-        - name: backend-lab23
-          image: maxhyeon/backend-lab23:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
-          envFrom:
-          - configMapRef:
-            name: lab23-backend-config
+      - name: backend-lab23
+        image: maxhyeon/backend-lab23:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+          name: lab23-backend-config
             
