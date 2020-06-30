@@ -38,15 +38,16 @@ podTemplate(label: label, cloud: "academycluster", containers: [
 			}
 		}
 
-		// stage('Static Code Analysis') {
-		// 	container('scanner') {
-		// 		sh "sonar-scanner \
-		// 			-Dsonar.projectKey=${sonarQubeProject} \
-		// 			-Dsonar.projectName=${sonarQubeProject} \
-		// 			-Dsonar.projectBaseDir=./ \
-		// 			-Dsonar.host.url=${sonarQubeURL}"
-		// 	}
-		// }
+		stage('Static Code Analysis') {
+			container('scanner') {
+				sh "sonar-scanner \
+					-Dsonar.projectKey=${sonarQubeProject} \
+					-Dsonar.sources=. \
+					-Dsonar.host.url=${sonarQubeURL} \
+					-Dsonar.login=60464e819894dc41b45f3eca168784c1b7d76e55"
+
+			}
+		}
 
 		stage('Dockerizing') {
 			container('docker') {
