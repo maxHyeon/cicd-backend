@@ -42,7 +42,7 @@ podTemplate(label: label, cloud: "academycluster", containers: [
 			container('scanner') {
 				sh "sonar-scanner \
 					-Dsonar.projectKey=${sonarQubeProject} \
-					-Dsonar.sources=. \
+				  -Dsonar.projectBaseDir=./\
 					-Dsonar.host.url=${sonarQubeURL} \
 					-Dsonar.login=60464e819894dc41b45f3eca168784c1b7d76e55"
 
