@@ -34,13 +34,16 @@ public class ProductAPI {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
+		String stockValue;
 		Optional<Product> stock = productService.findById(id);
 		if (!stock.isPresent()) {
 			log.error("Id " + id + " is not existed");
 			ResponseEntity.badRequest().build();
 		}
-
-		return ResponseEntity.ok(stock.get());
+	    if (value.isPresent()) {
+			stockValue = stock.get()
+		}
+		return ResponseEntity.ok(stockValue);
 	}
 
 	
